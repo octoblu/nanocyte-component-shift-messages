@@ -2,6 +2,10 @@ ReturnValue = require 'nanocyte-component-return-value'
 
 class ShiftMessages extends ReturnValue
   onEnvelope: (envelope) =>
-    return envelope.message
+    { data } = envelope
+    
+    message = data.shift()
+
+    return message
 
 module.exports = ShiftMessages
